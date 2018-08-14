@@ -196,7 +196,7 @@
                 }
             },
             updateLayout (layout) {
-                this.$parent.$emit('update:layout', layout)
+                this.$emit('update:layout', layout)
             },
             registerBox (box) {
                 this.enableResizing(box)
@@ -248,7 +248,7 @@
                     // clone layout
                     initialLayout = utils.sortLayout(this.layout)
 
-                    this.$parent.$emit('drag:start', initialLayout)
+                    this.$emit('drag:start', initialLayout)
                 })
 
                 box.$on('dragUpdate', evt => {
@@ -297,7 +297,7 @@
                     }
                     this.updateLayout(newLayout)
 
-                    this.$parent.$emit('drag:update', newLayout)
+                    this.$emit('drag:update', newLayout)
                 })
 
                 box.$on('dragEnd', evt => {
@@ -345,8 +345,7 @@
 
                     this.placeholder.hidden = true
                     isDragging = false
-
-                    this.$parent.$emit('drag:end', newLayout)
+                    this.$eventBus.$emit('drag:end', newLayout)
                 })
             },
             enableResizing (box) {
@@ -390,7 +389,7 @@
                     // clone layout
                     initialLayout = utils.sortLayout(this.layout)
 
-                    this.$parent.$emit('resize:start', initialLayout)
+                    this.$emit('resize:start', initialLayout)
                 })
 
                 box.$on('resizeUpdate', evt => {
@@ -439,7 +438,7 @@
                     }
                     this.updateLayout(newLayout)
 
-                    this.$parent.$emit('resize:update', newLayout)
+                    this.$emit('resize:update', newLayout)
                 })
 
                 box.$on('resizeEnd', evt => {
@@ -487,7 +486,7 @@
 
                     this.placeholder.hidden = true
 
-                    this.$parent.$emit('resize:end', newLayout)
+                    this.$emit('resize:end', newLayout)
                 })
             },
             createBoxLayout (...boxIds) {

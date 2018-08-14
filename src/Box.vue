@@ -115,7 +115,7 @@
 
                 evt.preventDefault()
                 this.dragging = true
-                this.$parent.$emit('dragStart')
+                this.$emit('dragStart')
                 let mouseX = evt.clientX
                 let mouseY = evt.clientY
 
@@ -129,7 +129,7 @@
                         x: evt.clientX - mouseX,
                         y: evt.clientY - mouseY
                     }
-                    this.$parent.$emit('dragEnd', { offset })
+                    this.$emit('dragEnd', { offset })
                 }
 
                 const handleMouseMove = evt => {
@@ -137,7 +137,7 @@
                         x: evt.clientX - mouseX,
                         y: evt.clientY - mouseY
                     }
-                    this.$parent.$emit('dragUpdate', { offset })
+                    this.$emit('dragUpdate', { offset })
                 }
 
                 window.addEventListener('mouseup', handleMouseUp, true)
@@ -151,7 +151,7 @@
                     evt.preventDefault()
                     evt.stopPropagation()
                     this.resizing = true
-                    this.$parent.$emit('resizeStart')
+                    this.$emit('resizeStart')
                     let mouseX = evt.clientX
                     let mouseY = evt.clientY
 
@@ -165,7 +165,7 @@
                             x: evt.clientX - mouseX,
                             y: evt.clientY - mouseY
                         }
-                        this.$parent.$emit('resizeEnd', { offset })
+                        this.$emit('resizeEnd', { offset })
                     }
 
                     const handleMouseMove = evt => {
@@ -173,7 +173,7 @@
                             x: evt.clientX - mouseX,
                             y: evt.clientY - mouseY
                         }
-                        this.$parent.$emit('resizeUpdate', { offset })
+                        this.$emit('resizeUpdate', { offset })
                     }
 
                     window.addEventListener('mouseup', handleMouseUp, true)

@@ -161,6 +161,11 @@
             onLayoutUpdate (evt) {
                 this.layout = evt.layout
             }
+        },
+        mounted () {
+            this.$on('drag:end', function (newLayout) {
+                console.log(newLayout)
+            })
         }
     }
 </script>
